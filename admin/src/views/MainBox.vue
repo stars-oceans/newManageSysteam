@@ -14,6 +14,15 @@
 <script setup>
 import Header from '../components/mainbox/Header.vue'
 import Aside from '../components/mainbox/Aside.vue'
+
+    let unitPrice = 18
+
+    let digit = 123
+
+    let share = function(){
+
+    }
+    
 </script>
 
 <style>
