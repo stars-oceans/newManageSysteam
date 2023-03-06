@@ -47,6 +47,8 @@
 import { reactive, ref } from 'vue'
 import { loadFull } from "tsparticles";
 import  { useRouter } from  'vue-router'
+// 导入 axios 
+import axios from 'axios'
 
 const router = useRouter()
 // form 表单的引用对象
@@ -74,6 +76,15 @@ const submitForm = function(){
     // console.log(value); //false
     if (value === true) {
       if (loginForm.username === 'admin' && loginForm.password === '123456') {
+      // 发起请求
+      axios.get('/users').then(
+        function(res){
+          console.log(res.data);
+      },
+        function(error){
+          console.log(error.message);
+        }
+      )
        localStorage.setItem('token','yhc')
        router.push('/home')
       }else{
@@ -170,8 +181,6 @@ const options = {
   },
   detectRetina: true
 }
-
-
 
 </script>
 <style scoped>
